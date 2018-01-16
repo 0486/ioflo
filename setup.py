@@ -31,13 +31,6 @@ if SETUP_DIRNAME != '':
 
 SETUP_DIRNAME = os.path.abspath(SETUP_DIRNAME)
 
-IOFLO_METADATA = os.path.join(SETUP_DIRNAME, 'ioflo', '__metadata__.py')
-
-# Load the metadata using exec() so we don't trigger an import of ioflo.__init__
-# This is mainly a problem for Python 2.6
-
-exec(compile(open(IOFLO_METADATA).read(), IOFLO_METADATA, 'exec'))
-
 
 PYTHON26_REQUIRES = []
 if sys.version_info < (2, 7): #tuple comparison element by element
@@ -46,13 +39,27 @@ if sys.version_info < (2, 7): #tuple comparison element by element
 
 REQUIRES = [] + PYTHON26_REQUIRES
 
+# Adding default python_requires
+py_req = '>=2.6'
+
+# Load the metadata using exec() so we don't trigger an import of ioflo.__init__
+# This is mainly a problem for Python 2.6
+
+
 if sys.version_info > (3,):
     PYTHON_SCRIPTS = ['scripts/ioflo', 'scripts/ioflo3',]
+    IOFLO_METADATA = os.path.join(SETUP_DIRNAME, 'ioflo', '__metadata__.py')
+    py_req = '>=3'
 else:
     PYTHON_SCRIPTS = ['scripts/ioflo', 'scripts/ioflo2',]
+    IOFLO_METADATA = os.path.join(SETUP_DIRNAME, 'ioflo', '__metadata__oldpython.py')
+
+
+exec(compile(open(IOFLO_METADATA).read(), IOFLO_METADATA, 'exec'))
 
 setup(
-    name='ioflo',
+    python_requires=py_req,
+    name='ioflo-py-multiversion-dev',
     version=__version__,
     description='Flow Based Programming Automated Reasoning Engine and Automation Operation System',
     long_description='Enabling the Programmable World. http://ioflo.com  ',
@@ -76,4 +83,3 @@ setup(
     setup_requires=["setuptools_git >= 1.1", ],
     extras_require={},
     scripts=PYTHON_SCRIPTS,)
-

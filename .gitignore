@@ -7,6 +7,13 @@
 dist/*/*
 dist
 dist/
+ioflo_py_multiversion_dev.egg-info
+ioflo_py_multiversion_dev.egg-info/
+ioflo_py_multiversion_dev.egg-info/*
+ioflo_py_multiversion_dev.egg-info/*.*
+ioflo_py_multiversion_dev.egg-info*
+ioflo_py_multiversion_dev.egg-info/PKG-INFO
+ioflo_py_multiversion_dev.eggs/
 ioflo.egg-info
 ioflo.egg-info/
 ioflo.egg-info/*
@@ -14,7 +21,11 @@ ioflo.egg-info/*.*
 ioflo.egg-info*
 ioflo.egg-info/PKG-INFO
 ioflo.eggs/
+build
+build/
+build/*
+build/*.*
+build*
 .eggs/
 .hgignore
 .hgtags
-
