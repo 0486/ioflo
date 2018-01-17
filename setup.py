@@ -40,7 +40,7 @@ if sys.version_info < (2, 7): #tuple comparison element by element
 REQUIRES = [] + PYTHON26_REQUIRES
 
 # Adding default python_requires
-py_req = '>=2.6'
+py_req = '>=2.6,!=3.0.*,!=3.1.*,!=3.2.*,<=3.5'
 
 # Load the metadata using exec() so we don't trigger an import of ioflo.__init__
 # This is mainly a problem for Python 2.6
