@@ -46,10 +46,10 @@ py_req = '>=2.6'
 # This is mainly a problem for Python 2.6
 
 
-if sys.version_info > (3,):
+if sys.version_info > (3,5):
     PYTHON_SCRIPTS = ['scripts/ioflo', 'scripts/ioflo3',]
     IOFLO_METADATA = os.path.join(SETUP_DIRNAME, 'ioflo', '__metadata__.py')
-    py_req = '>=3'
+    py_req = '>=3.6'
 else:
     PYTHON_SCRIPTS = ['scripts/ioflo', 'scripts/ioflo2',]
     IOFLO_METADATA = os.path.join(SETUP_DIRNAME, 'ioflo', '__metadata__oldpython.py')
